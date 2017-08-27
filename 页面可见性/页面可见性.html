@@ -8,6 +8,8 @@
 <body>
 <p id="p1"></p>
 <script src="../vconsole.min.js"></script>
+<!-- 处理pc端兼容可引入 -->
+<script src="pageVisibility.js"></script>
 <script>
     /*
         移动端基本都支持
@@ -20,6 +22,16 @@
     document.addEventListener('visibilitychange', function (){
         console.log( document.visibilityState );
     }, false);
+    
+    /*
+        处理pc端兼容
+     */
+    // var isSupport = typeof pageVisibility.hidden !== "undefined";
+    if (typeof pageVisibility.hidden !== "undefined") {
+        console.log('兼容');
+    }else{
+        console.log('不兼容');
+    }
 </script>
 </body>
 </html>
