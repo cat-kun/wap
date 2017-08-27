@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>页面可见性</title>
+</head>
+<body>
+<p id="p1"></p>
+<script src="../vconsole.min.js"></script>
+<script>
+    /*
+        移动端基本都支持
+     */
+    //false：表示可见
+    console.log( document.hidden );
+    //visible：表示可见
+    console.log( document.visibilityState );
+
+    document.addEventListener('visibilitychange', function (){
+        console.log( document.visibilityState );
+    }, false);
+</script>
+</body>
+</html>
