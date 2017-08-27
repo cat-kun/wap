@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>音频</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.bgm-btn{
+			width: 198px;
+			height: 198px;
+			overflow: hidden;
+			margin: 50% auto;
+			position: relative;
+		}
+		.bgm-btn.rotate {
+		    -webkit-animation: rotating 8s linear infinite;
+		    animation: rotating 8s linear infinite
+		}
+		.bgm-btn img{
+			width: 130px;
+			height: 130px;
+			margin: 34px;
+		}
+		.bg{
+			width: 206px;
+			height: 205px;
+			overflow: hidden;
+			background: url("img/coverall.png") -140px -580px no-repeat;
+			position: absolute;
+			top: -4px;
+			left: -4px;
+		}
+		@keyframes rotating {
+		    0% {
+		        transform: rotate(0deg)
+		    }
+
+		    to {
+		        transform: rotate(1turn)
+		    }
+		}
+	</style>
+</head>
+<body>
+<div class="bgm-btn rotate">
+	<img src="img/18822539557778052.jpg" alt="">
+	<audio id="audio" src="http://120.198.248.24/cache/m10.music.126.net/20170828003318/8611da7034f3dbb069bad1e099145370/ymusic/462d/1886/f215/578f71795bd6ac1c3e8f5ed2c5fba7d1.mp3?ich_args2=28-28000805010561_f6415b7875e2d4d197936824d6aae937_10012302_9c89642fdfc6f1d19e33518939a83798_43805d7a040a5cf31778d35adbd363a3" autoplay loop preload></audio>
+	<span class="bg"></span>
+</div>
+<script>
+	var oBtn = document.querySelector('.bgm-btn');
+	var oAudio = document.querySelector('#audio');
+
+	//控制音乐播放
+	var onOff = true;
+	oBtn.addEventListener('touchstart', function (){
+		if(onOff){
+			oBtn.className = 'bgm-btn';
+			oAudio.pause();
+		}else{
+			oBtn.className = 'bgm-btn rotate';
+			oAudio.play();
+		}
+		onOff = !onOff;
+	}, false);
+
+	//audio的autoplay属性是自动播放。但是在ios下不会自动播放，需要通过js触发
+</script>
+</body>
+</html>
