@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>照片元数据</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<img src="img/park.jpg" alt="" class="img">
+<script src="js/exif.js"></script>
+<script>
+onload = function(){
+    let oImg = document.querySelector('.img');
+    console.log(oImg);
+    EXIF.getData(oImg, function (){
+        console.log(this);
+        let all = EXIF.getAllTags(this);
+        console.log( all );
+        console.log(this);
+    });
+}
+</script>
+</body>
+</html>
