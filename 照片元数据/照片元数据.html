@@ -14,17 +14,18 @@
     </style>
 </head>
 <body>
-<img src="img/park.jpg" alt="" class="img">
+<img id="img" src="img/park.jpg" alt="" class="img">
 <script src="js/exif.js"></script>
 <script>
 onload = function(){
-    let oImg = document.querySelector('.img');
+    let oImg = document.querySelector('#img');
     console.log(oImg);
+    console.log(ExifVersion);
     EXIF.getData(oImg, function (){
         console.log(this);
-        let all = EXIF.getAllTags(this);
+        /*let all = EXIF.getAllTags(this);
         console.log( all );
-        console.log(this);
+        console.log(this);*/
     });
 }
 </script>

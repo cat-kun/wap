@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,.5);
+            color: #fff;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="div1"></div>
+<script>
+    var oDiv = document.querySelector('.div1');
+
+    oDiv.addEventListener('mousedown', function (){
+        console.log(1);
+    });
+    oDiv.addEventListener('touchstart', function (){
+        console.log(2);
+    });
+</script>
+</body>
+</html>

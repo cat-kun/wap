@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class="page">
+    <ul class="list"></ul>
+</div>
+<script>
+var oPage = document.querySelector('.page');
+var oUl = document.querySelector('.list');
+var html = '';
+for(var i = 0; i < 50; i++){
+    html += `<li>第${i}个li</li>`;
+}
+oUl.innerHTML = html;
+
+
+/*
+新版本chrome不支持给document、body加阻止默认事件
+
+document.addEventListener('touchstart', function (e){
+    e.preventDefault();
+});
+*/
+oPage.addEventListener('touchstart', function (e){
+    e.preventDefault();
+});
+</script>
+</body>
+</html>
