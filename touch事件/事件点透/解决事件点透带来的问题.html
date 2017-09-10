@@ -12,6 +12,7 @@
 <script>
 var oPage = document.querySelector('.page');
 var oUl = document.querySelector('.list');
+
 var html = '';
 for(var i = 0; i < 50; i++){
     html += `<li>第${i}个li</li>`;
@@ -27,7 +28,11 @@ document.addEventListener('touchstart', function (e){
 });
 */
 oPage.addEventListener('touchstart', function (e){
-    e.preventDefault();
+    // e.preventDefault();
+});
+
+oUl.addEventListener('click', function (){
+	alert(1);
 });
 </script>
 </body>

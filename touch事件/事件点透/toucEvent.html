@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>封装tap</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="box"></div>
+</div>
+<script>
+/*
+    touchEvent
+        touches：当前屏幕上的手指列表
+        targetTouches：当前元素的手指列表
+        changedTouches：触发当前事件的手指列表
+ */
+var oPage = document.querySelector('.page');
+var oBox = document.querySelector('.box');
+
+oPage.addEventListener('touchstart', function (e){
+    // e.preventDefault();
+});
+oBox.addEventListener('touchstart', function (e){
+    console.log(e.touches[0])
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>封装tap</title>
+</head>
+<body>
+<div class="page">
+    <ul class="list"></ul>
+</div>
+<script>
+var oPage = document.querySelector('.page');
+var oUl = document.querySelector('.list');
+
+var html = '';
+for(var i = 0; i < 50; i++){
+    html += `<li><a href="http://www.baidu.com">第${i}个li</a></li>`;
+}
+oUl.innerHTML = html;
+
+var a = oUl.querySelectorAll('a');
+oPage.addEventListener('touchstart', function (e){
+    // e.preventDefault();
+});
+
+for(var i = 0; i < a.length; i++){
+    tap(a[i], function (){
+        window.location.href = this.href;
+    });
+}
+
+/*
+    el: 点击的元素
+    fn: 点击后执行的事件
+ */
+/*
+    思路：
+    在手指抬起时判断元素有没有move事件，如果没有发生move事件，我们就认定用户要操作的是一个点击操作
+ */
+function tap(el,fn){
+    var isMove = false;
+    el.addEventListener('touchmove', function (e){
+        isMove = true;
+    });
+    el.addEventListener('touchend', function (e){
+        if(!isMove){
+            fn&&fn.call(el,e); //fn存在再执行fn，call 修改 this指向，call第0个参数代表的是函数执行时的this指向，从第一个参数开始，就是正常的函数传参。call第一个参数，对应函数中的第0个参数
+        }
+        isMove = false;
+    });
+}
+/*
+    安卓不兼容
+ */
+</script>
+</body>
+</html>

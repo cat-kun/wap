@@ -9,7 +9,7 @@ touchmove 手指移动 —— mousemove
 touchend 手指抬起 ——mouseup
 
 touchstart 手指触碰元素
-touchmove 手指移动元素，在屏幕中移动
+touchmove 手指触碰元素，在屏幕中移动
 touchend 手指抬起，在屏幕中抬起
 ```
 在移动端支持mouse事件，但是mouse事件，在移动端的执行会有300ms左右的延迟，并且还有一个臭名昭著的bug：事件点透

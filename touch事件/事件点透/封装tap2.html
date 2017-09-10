@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>完整版封装tap</title>
+</head>
+<body>
+<div class="page">
+    <ul class="list"></ul>
+</div>
+<script>
+var oPage = document.querySelector('.page');
+var oUl = document.querySelector('.list');
+
+var html = '';
+for(var i = 0; i < 50; i++){
+    html += `<li><a href="http://www.baidu.com">第${i}个li</a></li>`;
+}
+oUl.innerHTML = html;
+
+oPage.addEventListener('touchstart', function (e){
+    e.preventDefault();
+});
+
+var a = oUl.querySelectorAll('a');
+for(var i = 0; i < a.length; i++){
+    // console.log(i);
+    tap(a[i], function (){
+        window.location.href = this.href;
+    });
+}
+
+/*
+    在点击的时候，记录手指坐标，
+    抬起的时候，判断手指坐标和按下的手指坐标差值，小于一定值时，我们就认定它是点击。
+ */
+
+function tap(el,fn){
+    var startPoint = {};
+    el.addEventListener('touchstart', function (e){
+        startPoint = {
+            x: e.changedTouches[0].pageX,
+            y: e.changedTouches[0].pageY
+        }
+    });
+    el.addEventListener('touchend', function (e){
+        var nowPoint = {
+            x: e.changedTouches[0].pageX,
+            y: e.changedTouches[0].pageY
+        }
+        var disPoint = {
+            x: Math.abs(nowPoint.x - startPoint.x),
+            y: Math.abs(nowPoint.y - startPoint.y)
+        }
+        console.log(disPoint.x);
+        if( disPoint.x < 5 && disPoint.y < 5 ){
+            fn&&fn.call(el,e)
+        }
+    });
+}
+/*
+    安卓不兼容
+ */
+</script>
+</body>
+</html>
