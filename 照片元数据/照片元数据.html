@@ -9,7 +9,7 @@
             margin: 0;
         }
         .img{
-            width: 100%;
+            width: 300px;
         }
     </style>
 </head>
@@ -17,17 +17,18 @@
 <img id="img" src="img/park.jpg" alt="" class="img">
 <script src="js/exif.js"></script>
 <script>
-// onload = function(){
+onload = function(){
     let oImg = document.querySelector('#img');
     
     EXIF.getData(oImg, function (){
         // console.log(this);
-        /*let all = EXIF.getAllTags(this);
-        console.log( all );*/
-        console.log(this);
-        alert(this);
+        let all = EXIF.getAllTags(this);
+        console.log( all );
+        console.log( EXIF.getTag(oImg, 'Model') );
+        
+        // alert(this);
     });
-// }
+}
 </script>
 </body>
 </html>
