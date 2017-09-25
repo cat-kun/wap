@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        alert(window.orientation);
+        /*
+            window.orientation 屏幕的方向
+            竖屏 0 180
+            横屏 90 -90
+        */
+        //对应的检测横竖屏事件，同样在chrome模拟器下无效
+        window.addEventListener('window.orientation' == '' ? resize : 'orientationchange', function (e){
+            alert('横竖屏切换')
+        });
+    </script>
+</body>
+</html>

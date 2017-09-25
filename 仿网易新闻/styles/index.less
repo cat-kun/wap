@@ -1,0 +1,71 @@
+body,div,header,nav,p{
+  margin: 0;
+  padding: 0;
+}
+html, body{
+  height: 100%;
+  position: relative;
+}
+a{
+  text-decoration: none;
+  tap-highlight-color: rgba(0,0,0,0);
+}
+img{
+  vertical-align: top;
+}
+
+.page{
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.header{
+  height: 40px;
+  line-height: 40px;
+  background-color: #fff;
+  text-align: center;
+  font-size: 16px;
+}
+
+.nav{
+  height: 40px;
+  background-color: #f33;
+  position: relative;
+  .nav-box{
+    height: 40px;
+    position: relative;
+    margin-right: 40px;
+    overflow: hidden;
+  }
+  .navList{
+    float: left;
+    white-space: nowrap;
+  }
+  a{
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    margin: 0 10px;
+  }
+  .down{
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+@media screen {
+  body{
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
